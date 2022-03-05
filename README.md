@@ -81,7 +81,7 @@ class AppThemeManager: ACThemeManager<AppTheme> {
     static var shared = AppThemeManager()
 }
 ```
-And finally create extensions for thematic types. For example, for all NSOvest at once:
+And finally create extensions for thematic types. For example, for all `NSObject` at once:
 
 ```swift
 extension NSObject: ACThemableManageable {
