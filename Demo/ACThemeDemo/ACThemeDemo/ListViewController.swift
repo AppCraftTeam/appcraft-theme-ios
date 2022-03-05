@@ -12,15 +12,6 @@ import ACTheme
 class ListViewController: UIViewController {
     
     // MARK: - Props
-    lazy var titleLabel: UILabel = {
-        let result = UILabel()
-        result.applyTheme { view, settings in
-            view.textColor = settings.textColor
-        }
-        
-        return result
-    }()
-    
     lazy var tableView: UITableView = {
         let result = UITableView()
         result.backgroundColor = .clear
