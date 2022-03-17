@@ -21,13 +21,16 @@ public extension ACThemableManageable {
         set { objc_setAssociatedObject(self, Unmanaged.passUnretained(self).toOpaque(), newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC) }
     }
     
-    func applyTheme(_ didTheme: @escaping ACThemeSettingsSpecificClosure<Self>) {
+    @discardableResult
+    func applyTheme(_ didTheme: @escaping ACThemeSettingsSpecificClosure<Self>) -> Self {
         self.didTheme = { object, settings in
             guard let object = object as? Self, let settings = settings as? ThemeSettings else { return }
             didTheme(object, settings)
         }
         
         self.themeManager.addWrapper(ACThemeWrapper(object: self))
+        
+        return self
     }
     
 }
